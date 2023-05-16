@@ -1,1 +1,158 @@
-[]
+[
+    {
+        "id": "5f35a593efbb3cda",
+        "type": "tab",
+        "label": "PS4-Flow",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "79bf1f9785206ca5",
+        "type": "alexa-home-conf",
+        "username": "S"
+    },
+    {
+        "id": "bdcf3c67f68526b2",
+        "type": "alexa-home",
+        "z": "5f35a593efbb3cda",
+        "conf": "79bf1f9785206ca5",
+        "device": "184595",
+        "acknoledge": true,
+        "name": "PS4",
+        "topic": "",
+        "x": 110,
+        "y": 220,
+        "wires": [
+            [
+                "7bf3bb6b477ad25f"
+            ]
+        ]
+    },
+    {
+        "id": "34addbbb1fcaa727",
+        "type": "exec",
+        "z": "5f35a593efbb3cda",
+        "command": "ps4-waker",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 550,
+        "y": 220,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "7bf3bb6b477ad25f",
+        "type": "change",
+        "z": "5f35a593efbb3cda",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "true",
+                "fromt": "bool",
+                "to": "",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "false",
+                "fromt": "bool",
+                "to": "standby",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 220,
+        "wires": [
+            [
+                "34addbbb1fcaa727"
+            ]
+        ]
+    },
+    {
+        "id": "275f1a03f4beebf8",
+        "type": "alexa-home",
+        "z": "5f35a593efbb3cda",
+        "conf": "79bf1f9785206ca5",
+        "device": "184605",
+        "acknoledge": true,
+        "name": "Netflix",
+        "topic": "",
+        "x": 110,
+        "y": 300,
+        "wires": [
+            [
+                "cf9dae111c20a285"
+            ]
+        ]
+    },
+    {
+        "id": "a3b2ef8890f7d56f",
+        "type": "alexa-home",
+        "z": "5f35a593efbb3cda",
+        "conf": "79bf1f9785206ca5",
+        "device": "184606",
+        "acknoledge": true,
+        "name": "Disney Plus",
+        "topic": "",
+        "x": 130,
+        "y": 380,
+        "wires": [
+            [
+                "23ae6495d6d2eeeb"
+            ]
+        ]
+    },
+    {
+        "id": "cf9dae111c20a285",
+        "type": "function",
+        "z": "5f35a593efbb3cda",
+        "name": "Open Netflix",
+        "func": "const titleID ='CUSA02988'\nconst main = async () => {\n    const Device = global.get('ps4').Device;\n    let ps4 = new Device();\n\n    await ps4.turnOn();\n\n    await ps4.startTitle(titleID);\n\n    ps4.close();\n}\n\nmain();\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "23ae6495d6d2eeeb",
+        "type": "function",
+        "z": "5f35a593efbb3cda",
+        "name": "Open Disney Plus",
+        "func": "const titleID ='CUSA15607'\nconst main = async () => {\n    const Device = global.get('ps4').Device;\n    let ps4 = new Device();\n\n    await ps4.turnOn();\n\n    await ps4.startTitle(titleID);\n\n    ps4.close();\n}\n\nmain();\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    }
+]
