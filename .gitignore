@@ -1,3 +1,4 @@
 *.backup
 node_modules/
 node-red-key
+flow_cred.json
