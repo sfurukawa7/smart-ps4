@@ -33,7 +33,7 @@
         "id": "34addbbb1fcaa727",
         "type": "exec",
         "z": "5f35a593efbb3cda",
-        "command": "ps4-waker",
+        "command": "npx ps4-waker",
         "addpay": "payload",
         "append": "",
         "useSpawn": "false",
@@ -41,7 +41,7 @@
         "winHide": false,
         "oldrc": false,
         "name": "",
-        "x": 550,
+        "x": 560,
         "y": 220,
         "wires": [
             [],
@@ -126,12 +126,17 @@
         "type": "function",
         "z": "5f35a593efbb3cda",
         "name": "Open Netflix",
-        "func": "const titleID ='CUSA02988'\nconst main = async () => {\n    const Device = global.get('ps4').Device;\n    let ps4 = new Device();\n\n    await ps4.turnOn();\n\n    await ps4.startTitle(titleID);\n\n    ps4.close();\n}\n\nmain();\nreturn msg;",
+        "func": "const titleID ='CUSA02988'\nconst main = async () => {\n    let ps4 = new ps4Waker.Device();\n\n    await ps4.turnOn();\n\n    await ps4.startTitle(titleID);\n\n    ps4.close();\n}\n\nmain();\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "libs": [],
+        "libs": [
+            {
+                "var": "ps4Waker",
+                "module": "ps4-waker"
+            }
+        ],
         "x": 310,
         "y": 300,
         "wires": [
@@ -143,12 +148,17 @@
         "type": "function",
         "z": "5f35a593efbb3cda",
         "name": "Open Disney Plus",
-        "func": "const titleID ='CUSA15607'\nconst main = async () => {\n    const Device = global.get('ps4').Device;\n    let ps4 = new Device();\n\n    await ps4.turnOn();\n\n    await ps4.startTitle(titleID);\n\n    ps4.close();\n}\n\nmain();\nreturn msg;",
+        "func": "const titleID ='CUSA15607'\nconst main = async () => {\n    let ps4 = new ps4Waker.Device();\n\n    await ps4.turnOn();\n\n    await ps4.startTitle(titleID);\n\n    ps4.close();\n}\n\nmain();\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "libs": [],
+        "libs": [
+            {
+                "var": "ps4Waker",
+                "module": "ps4-waker"
+            }
+        ],
         "x": 330,
         "y": 380,
         "wires": [
