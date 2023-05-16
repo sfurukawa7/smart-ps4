@@ -2,7 +2,9 @@
     "name": "smart-ps4",
     "description": "A Node-RED Project",
     "version": "0.0.1",
-    "dependencies": {},
+    "dependencies": {
+        "ps4-waker": "^1.10.1"
+    },
     "node-red": {
         "settings": {
             "flowFile": "flow.json",
